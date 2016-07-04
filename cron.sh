@@ -4,6 +4,9 @@
 # Description: Shellscript for starting Magento-cronjobs without the need of "ps".
 # Compatible Magento versions: 1.9.2.4, 1.9.2.3, 1.9.2.2, 1.9.2.1, 1.9.2.0, 1.9.1.1, 1.9.1.0, 1.9.0.1, 1.8.1.0, 1.8.0.0
 
+# Please report bugs and feedback to
+# https://github.com/mittwald/magento-cronjobs/issues
+
 lockfile=/tmp/cron.lock
 PHP_BIN=/usr/local/bin/php_cli
 ABSOLUTE_PATH=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)/$(basename "${BASH_SOURCE[0]}")
