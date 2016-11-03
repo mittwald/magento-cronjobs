@@ -19,14 +19,10 @@ function cleanup() {
 
 trap cleanup 1 2 3 6 9 15
 
-if [ ! -f $lockfile ];then
+if [ ! -f $lockfile ] || [ $(find $lockfile -mmin +59) ]; then
     echo $$ > $lockfile
 else
-    if [ $(find $lockfile -mmin +59) ];then
-        rm -f $lockfile
-    else
-        exit 0
-    fi
+    exit 0
 fi
 
 if [ -n "$1" ] ; then
