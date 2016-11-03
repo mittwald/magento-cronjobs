@@ -22,7 +22,11 @@ trap cleanup 1 2 3 6 9 15
 if [ ! -f $lockfile ];then
     echo $$ > $lockfile
 else
-    exit 0
+    if [ $(find $lockfile -mmin +59) ];then
+        rm -f $lockfile
+    else
+        exit 0
+    fi
 fi
 
 if [ -n "$1" ] ; then
